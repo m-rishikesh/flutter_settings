@@ -198,4 +198,25 @@ class _SettingsHomeState extends State<SettingsHome> {
             subtitle: Text("Use your phone to fix any issues"),
             onTap: () {},
           ),
-          
+         ListTile(
+            leading: Icon(Icons.info_outline_rounded),
+            title: Text('Accessibility'),
+            subtitle: Text("Languages,time,backup"),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.phone),
+            title: Text('About Phone'),
+            subtitle: Text("Flutter Phone"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => AboutPhoneScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+} 

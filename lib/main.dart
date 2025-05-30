@@ -220,3 +220,106 @@ class _SettingsHomeState extends State<SettingsHome> {
     );
   }
 } 
+// Dummy detail screens
+
+class WifiSettings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Wi-Fi')),
+      body: Center(child: Text('Wi-Fi settings screen')),
+    );
+  }
+}
+
+class BluetoothSettings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Bluetooth')),
+      body: Center(child: Text('Bluetooth settings screen')),
+    );
+  }
+}
+
+class DisplaySettings extends StatefulWidget {
+  @override
+  _DisplaySettingsState createState() => _DisplaySettingsState();
+}
+
+class _DisplaySettingsState extends State<DisplaySettings> {
+  double brightness = 0.5;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Display')),
+      body: Column(
+        children: [
+          ListTile(
+            title: Text('Brightness'),
+            subtitle: Slider(
+              value: brightness,
+              min: 0,
+              max: 1,
+              divisions: 10,
+              label: '${(brightness * 100).toInt()}%',
+              onChanged: (value) {
+                setState(() => brightness = value);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SoundSettings extends StatefulWidget {
+  @override
+  _SoundSettingsState createState() => _SoundSettingsState();
+}
+
+class _SoundSettingsState extends State<SoundSettings> {
+  double volume = 0.7;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Sound')),
+      body: Column(
+        children: [
+          ListTile(
+            title: Text('Media Volume'),
+            subtitle: Slider(
+              value: volume,
+              min: 0,
+              max: 1,
+              divisions: 10,
+              label: '${(volume * 100).toInt()}%',
+              onChanged: (value) {
+                setState(() => volume = value);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AboutPhoneScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('About Phone')),
+      body: ListView(
+        children: [
+          ListTile(title: Text('Device Name'), subtitle: Text('Flutter Phone')),
+          ListTile(title: Text('Android Version'), subtitle: Text('12.0')),
+          ListTile(title: Text('Model Number'), subtitle: Text('FP-2025')),
+        ],
+      ),
+    );
+  }
+}

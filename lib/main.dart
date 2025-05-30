@@ -68,6 +68,63 @@ class _SettingsHomeState extends State<SettingsHome> {
             },
           ),
           ListTile(
+            leading: Icon(Icons.bluetooth),
+            title: Text('Bluetooth'),
+            subtitle: Text(bluetoothEnabled ? 'On' : 'Off'),
+            trailing: Switch(
+              value: bluetoothEnabled,
+              onChanged: (value) {
+                setState(() => bluetoothEnabled = value);
+              },
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => BluetoothSettings()),
+              );
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.display_settings),
+            subtitle: Text("Dark Theme,Font Size,Brightness"),
+            title: Text('Display'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => DisplaySettings()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.volume_up),
+            title: Text('Sound & Vibration'),
+            subtitle: Text(
+              "Customize what is displayed on Home and lock screens",
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => SoundSettings()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.notifications_outlined),
+            title: Text('Notifications'),
+            subtitle: Text("Notification History,Conversations"),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: Icon(Icons.gesture),
+            title: Text('Gestures'),
+            subtitle: Text(
+              "Use gestures and keys to quickly open frequently used functions",
+            ),
+            onTap: () {},
+          ),
+          Divider(),
+          ListTile(
             leading: Icon(Icons.battery_2_bar_sharp),
             title: Text('Battery'),
             subtitle: Text("54% - Untill 6:15 am"),
